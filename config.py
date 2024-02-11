@@ -25,8 +25,9 @@ PUSH_TOKEN = os.environ.get("PUSHPLUS_KEY")
 *********** 地图配置 ***********
 获取地点信息,这里用的高德api,需要自己去高德开发者平台申请自己的key
 '''
-AMAP_KEY = os.environ.get("GAODE_KEY")
-
+AMAP_KEY = os.environ.get("AMAP_KEY")
+if AMAP_KEY is None:
+    raise ValueError("请配置config.py中AMAP_KEY(高德地图的MapKey)")
 
 '''
 *********** 个人账户认证配置 ***********
@@ -34,7 +35,7 @@ AMAP_KEY = os.environ.get("GAODE_KEY")
 不配置,使用默认路径,在项目目录中;如果需要配置,你自己应该也会配置路径
 例如： CREDENTIALS_PATH = './myConfig/credentials'
 '''
-CREDENTIALS_PATH = None
+CREDENTIALS_PATH = './myConfig/credentials'
 
 
 '''
